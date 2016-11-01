@@ -82,21 +82,24 @@ namespace Lab_6
             }
             return proceed;
         }
+        //Method:  Validate string input to word
         private static bool IsWord(string input)
         {
-            bool isWord;
             char[] temp = input.ToCharArray();
             int i = 0;
                        
             for (i = 0; i < input.Length; i++)
             {
                 char letter = temp[i];
-                isWord = char.IsLetter(letter);
+                bool isWord = char.IsLetter(letter);
+
+                Console.Write(letter.ToString());
+                Console.Write(isWord.ToString());
                 if (isWord == false)
                 {
+                    Console.Write("break");
                     break;
                 }
-                
             }
             return false;
         }
