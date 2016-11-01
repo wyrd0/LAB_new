@@ -30,11 +30,15 @@ namespace Lab_6
                     Console.WriteLine(addWay);
                 }
                 //if word starts with a consonant (move substring before 1st vowel to end, add 'ay')
-                else
+                else if (IndexOfFirstVowel >= 0)
                 {
                     string end = word.Substring(IndexOfFirstVowel);
                     string beginning = word.Substring(0, IndexOfFirstVowel);
-                    Console.WriteLine(end + beginning + "ay");
+                    Console.WriteLine(end + beginning + "ay"); 
+                }
+                else 
+                {
+                    Console.Write(word + " is not a word.  Please enter a word.  ");
                 }
                 Console.Write("Translate another word? (y/n)   ");
                 proceed = Proceed(Console.ReadLine());
@@ -48,7 +52,11 @@ namespace Lab_6
             char[] vowel = { 'a', 'e', 'i', 'o', 'u' };
             int indexFirstVowel = word.IndexOfAny(vowel);        //find index of first vowel
             return indexFirstVowel;
+            {
+
+            }
         }
+       
         //Method: Continue?
         private static string Proceed(string input)
         {
@@ -82,12 +90,17 @@ namespace Lab_6
     }
 
     //validate string input
-    //static bool isWord(string v)
-    //{
-    //    string input; 
-    //    if()
+    static bool isWord(string input)
+    {
+        char[] vowel = { 'a', 'e', 'i', 'o', 'u' };
+        if (int string.IndexOfAny(vowel))
+        {
 
 
-
-    //}
+        }
+       
+                
+        }
+        isWord = true;
+        }
 }
