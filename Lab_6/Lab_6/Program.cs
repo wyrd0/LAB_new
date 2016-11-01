@@ -12,7 +12,7 @@ namespace Lab_6
         {
             Console.WriteLine("Pig Latin Translator");
             Console.WriteLine("(igpay atinlay anslatortray)\n");
-        
+
             //set up/introduce continue loop 
             string proceed = "yes";
             while (proceed == "yes")
@@ -30,16 +30,33 @@ namespace Lab_6
                     Console.WriteLine(addWay);
                 }
                 //if word starts with a consonant (move substring before 1st vowel to end, add 'ay')
-                else if (IndexOfFirstVowel >= 0)
+                else if (IndexOfFirstVowel > 0)
                 {
                     string end = word.Substring(IndexOfFirstVowel);
                     string beginning = word.Substring(0, IndexOfFirstVowel);
-                    Console.WriteLine(end + beginning + "ay"); 
+                    Console.WriteLine(end + beginning + "ay");
                 }
-                else 
+                else if (word.Contains("y"))
                 {
-                    Console.Write(word + " is not a word.  Please enter a word.  ");
+                    string endY = word.Substring(word.IndexOf("y"));
+                    string beginY = word.Substring(0, word.IndexOf("y"));
+                    Console.WriteLine(endY + beginY + "ay");
                 }
+                // VALIDATION:  (If string does not contain a vowel or a 'y', it is not a word.)
+                else
+                {
+                  //char[]temp = word.ToCharArray();
+                    for(int i = 0; i < word.Length; i++)
+                    {
+                        if (temp[i] >= "a" && temp[i] =< "z")
+                        {
+
+                        }
+                    }
+
+                  Console.WriteLine(word + " is not a word.  Please enter a word.  (Numbers and special characters \nare not accepted.)");
+                }
+
                 Console.Write("Translate another word? (y/n)   ");
                 proceed = Proceed(Console.ReadLine());
             }
@@ -52,11 +69,8 @@ namespace Lab_6
             char[] vowel = { 'a', 'e', 'i', 'o', 'u' };
             int indexFirstVowel = word.IndexOfAny(vowel);        //find index of first vowel
             return indexFirstVowel;
-            {
-
-            }
         }
-       
+
         //Method: Continue?
         private static string Proceed(string input)
         {
@@ -69,38 +83,39 @@ namespace Lab_6
             {
                 Console.WriteLine("");
                 Console.WriteLine("Goodbye!");
-                Console.WriteLine("");
+                Console.WriteLine("(Oodbyegay!)");
             }
             return proceed;
         }
-
-        //private static string tryParse(string input)
-        //{
-        //    string msg = "Please enter a word. (Numbers and special chararcters are not allowed.)";
-        //    if (string.IsNullOrEmpty(input != )
-        //    {
-        //        throw new Exception(msg);
-        //    }
-
-        //}
-
-        //Next: Add validation and methods!
-        //NOTES:  words with only 'y' as a vowel (e.g., shy, my) throw exception.  fix.
-        // Next, (Extend) Keep case.
     }
+}
+    //private static string tryParse(string input)
+    //{
+    //    string msg = "Please enter a word. (Numbers and special chararcters are not allowed.)";
+    //    if (string.IsNullOrEmpty(input != )
+    //    {
+    //        throw new Exception(msg);
+    //    }
+
+    //}
+
+    //Next: Add validation and methods!
+    //NOTES:  words with only 'y' as a vowel (e.g., shy, my) throw exception.  fix.
+    // Next, (Extend) Keep case.
+
 
     //validate string input
-    static bool isWord(string input)
-    {
-        char[] vowel = { 'a', 'e', 'i', 'o', 'u' };
-        if (int string.IndexOfAny(vowel))
-        {
+    //static bool isWord(string input)
+    //{
+    //    char[] vowel = { 'a', 'e', 'i', 'o', 'u' };
+    //    if (int string.IndexOfAny(vowel))
+    //    {
 
 
-        }
+    //    }
        
                 
-        }
-        isWord = true;
-        }
-}
+    //    }
+    //    isWord = true;
+    //    }
+
