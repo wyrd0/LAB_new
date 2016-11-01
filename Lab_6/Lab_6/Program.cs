@@ -36,26 +36,20 @@ namespace Lab_6
                     string beginning = word.Substring(0, IndexOfFirstVowel);
                     Console.WriteLine(end + beginning + "ay");
                 }
-                else if (word.Contains("y"))
+                //else if (word.Contains("y"))
+                //{
+                //    string endY = word.Substring(word.IndexOf("y"));
+                //    string beginY = word.Substring(0, word.IndexOf("y"));
+                //    Console.WriteLine(endY + beginY + "ay");
+                //}
+                
+                // VALIDATION:  Check that string contains only letters.
+                if (strIsWord(word) = false)
                 {
-                    string endY = word.Substring(word.IndexOf("y"));
-                    string beginY = word.Substring(0, word.IndexOf("y"));
-                    Console.WriteLine(endY + beginY + "ay");
+                    Console.WriteLine(word + " is not a word.  Please enter a word.  (Numbers and special characters \nare not accepted.)");
                 }
-                // VALIDATION:  (If string does not contain a vowel or a 'y', it is not a word.)
-                else
-                {
-                  //char[]temp = word.ToCharArray();
-                    for(int i = 0; i < word.Length; i++)
-                    {
-                        if (temp[i] >= "a" && temp[i] =< "z")
-                        {
+                
 
-                        }
-                    }
-
-                  Console.WriteLine(word + " is not a word.  Please enter a word.  (Numbers and special characters \nare not accepted.)");
-                }
 
                 Console.Write("Translate another word? (y/n)   ");
                 proceed = Proceed(Console.ReadLine());
@@ -87,35 +81,46 @@ namespace Lab_6
             }
             return proceed;
         }
+        private static bool strIsWord(string input)
+        {
+            bool isWord;
+            char[] temp = input.ToCharArray();
+            for (int i = 0; i < input.Length; i++)
+            {
+                isWord = (char.IsLetter(temp[i]));
+            }
+            return isWord;
+        }
+
     }
 }
-    //private static string tryParse(string input)
-    //{
-    //    string msg = "Please enter a word. (Numbers and special chararcters are not allowed.)";
-    //    if (string.IsNullOrEmpty(input != )
-    //    {
-    //        throw new Exception(msg);
-    //    }
+//private static string tryParse(string input)
+//{
+//    string msg = "Please enter a word. (Numbers and special chararcters are not allowed.)";
+//    if (string.IsNullOrEmpty(input != )
+//    {
+//        throw new Exception(msg);
+//    }
 
-    //}
+//}
 
-    //Next: Add validation and methods!
-    //NOTES:  words with only 'y' as a vowel (e.g., shy, my) throw exception.  fix.
-    // Next, (Extend) Keep case.
-
-
-    //validate string input
-    //static bool isWord(string input)
-    //{
-    //    char[] vowel = { 'a', 'e', 'i', 'o', 'u' };
-    //    if (int string.IndexOfAny(vowel))
-    //    {
+//Next: Add validation and methods!
+//NOTES:  words with only 'y' as a vowel (e.g., shy, my) throw exception.  fix.
+// Next, (Extend) Keep case.
 
 
-    //    }
-       
-                
-    //    }
-    //    isWord = true;
-    //    }
+//validate string input
+//static bool isWord(string input)
+//{
+//    char[] vowel = { 'a', 'e', 'i', 'o', 'u' };
+//    if (int string.IndexOfAny(vowel))
+//    {
+
+
+//    }
+
+
+//    }
+//    isWord = true;
+//    }
 
