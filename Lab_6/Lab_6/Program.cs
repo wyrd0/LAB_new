@@ -42,9 +42,10 @@ namespace Lab_6
                 //    string beginY = word.Substring(0, word.IndexOf("y"));
                 //    Console.WriteLine(endY + beginY + "ay");
                 //}
-                
+
                 // VALIDATION:  Check that string contains only letters.
-                if (strIsWord(word) = false)
+                bool testWord = IsWord(word);
+                if (testWord == false)
                 {
                     Console.WriteLine(word + " is not a word.  Please enter a word.  (Numbers and special characters \nare not accepted.)");
                 }
@@ -81,46 +82,24 @@ namespace Lab_6
             }
             return proceed;
         }
-        private static bool strIsWord(string input)
+        private static bool IsWord(string input)
         {
             bool isWord;
             char[] temp = input.ToCharArray();
-            for (int i = 0; i < input.Length; i++)
+            int i = 0;
+                       
+            for (i = 0; i < input.Length; i++)
             {
-                isWord = (char.IsLetter(temp[i]));
+                char letter = temp[i];
+                isWord = char.IsLetter(letter);
+                if (isWord == false)
+                {
+                    break;
+                }
+                
             }
-            return isWord;
+            return false;
         }
 
     }
 }
-//private static string tryParse(string input)
-//{
-//    string msg = "Please enter a word. (Numbers and special chararcters are not allowed.)";
-//    if (string.IsNullOrEmpty(input != )
-//    {
-//        throw new Exception(msg);
-//    }
-
-//}
-
-//Next: Add validation and methods!
-//NOTES:  words with only 'y' as a vowel (e.g., shy, my) throw exception.  fix.
-// Next, (Extend) Keep case.
-
-
-//validate string input
-//static bool isWord(string input)
-//{
-//    char[] vowel = { 'a', 'e', 'i', 'o', 'u' };
-//    if (int string.IndexOfAny(vowel))
-//    {
-
-
-//    }
-
-
-//    }
-//    isWord = true;
-//    }
-
