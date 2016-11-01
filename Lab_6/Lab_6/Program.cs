@@ -18,20 +18,18 @@ namespace Lab_6
             while (proceed == "yes")
             {
                 //Get user input
-                Console.WriteLine("Please enter a word:  ");
+                Console.Write("Please enter a word:  ");
                 string word = (Console.ReadLine());
                 word = word.Trim().ToLower();
                 int IndexOfFirstVowel = findIndexFirstVowel(word);
+                Console.WriteLine("");
 
-                // VALIDATE - string should contain only letters and should contain a vowel or a 'y'.
+                // VALIDATE - string should contain only letters and should contain a vowel or, failing that, a 'y'.
                 bool testWord = IsWord(word);
                 if (testWord == false || IndexOfFirstVowel < 0 && word.IndexOf("y") < 0)
                 {
-                    Console.WriteLine(IsWord(word));
-                    Console.WriteLine(word + " is not a word.  Please enter a word.  (Numbers and special characters \nare not accepted.)\n");
+                    Console.WriteLine("Error!  The string you entered, '" + word + "' , is not a word.  Please try again.  \n(Numbers and special characters are not accepted.)\n");
                 }
-                //else if (IndexOfFirstVowel < 0) 
-
                 //if word starts with a vowel (append 'way')
                 else if (IndexOfFirstVowel == 0)
                 {
@@ -52,12 +50,10 @@ namespace Lab_6
                     string beginY = word.Substring(0, word.IndexOf("y"));
                     Console.WriteLine(endY + beginY + "ay");
                 }
-
-
-
-
+                
                 Console.Write("\nTranslate another word? (y/n)   ");
                 proceed = Proceed(Console.ReadLine());
+                Console.WriteLine(" ");
             }
         }
 
@@ -95,11 +91,8 @@ namespace Lab_6
             {
                 isWord = char.IsLetter(temp[i]);
 
-                Console.WriteLine(temp[i].ToString());
-                Console.WriteLine(isWord.ToString());
-                if (isWord == false)
+               if (isWord == false)
                 {
-                    Console.WriteLine("break");
                     break;
                 }
          }
