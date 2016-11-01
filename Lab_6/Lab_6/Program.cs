@@ -23,8 +23,17 @@ namespace Lab_6
                 word = word.Trim().ToLower();
                 int IndexOfFirstVowel = findIndexFirstVowel(word);
 
+                // VALIDATE - string should contain only letters and should contain a vowel or a 'y'.
+                bool testWord = IsWord(word);
+                if (testWord == false || IndexOfFirstVowel < 0 && word.IndexOf("y") < 0)
+                {
+                    Console.WriteLine(IsWord(word));
+                    Console.WriteLine(word + " is not a word.  Please enter a word.  (Numbers and special characters \nare not accepted.)\n");
+                }
+                //else if (IndexOfFirstVowel < 0) 
+
                 //if word starts with a vowel (append 'way')
-                if (IndexOfFirstVowel == 0)
+                else if (IndexOfFirstVowel == 0)
                 {
                     string addWay = (word + "way");
                     Console.WriteLine(addWay);
@@ -36,23 +45,18 @@ namespace Lab_6
                     string beginning = word.Substring(0, IndexOfFirstVowel);
                     Console.WriteLine(end + beginning + "ay");
                 }
-                //else if (word.Contains("y"))
-                //{
-                //    string endY = word.Substring(word.IndexOf("y"));
-                //    string beginY = word.Substring(0, word.IndexOf("y"));
-                //    Console.WriteLine(endY + beginY + "ay");
-                //}
-
-                // VALIDATION:  Check that string contains only letters.
-                bool testWord = IsWord(word);
-                if (testWord == false)
+                //remaining words containing 'y'
+                else if (word.Contains("y"))
                 {
-                    Console.WriteLine(word + " is not a word.  Please enter a word.  (Numbers and special characters \nare not accepted.)");
+                    string endY = word.Substring(word.IndexOf("y"));
+                    string beginY = word.Substring(0, word.IndexOf("y"));
+                    Console.WriteLine(endY + beginY + "ay");
                 }
-                
 
 
-                Console.Write("Translate another word? (y/n)   ");
+
+
+                Console.Write("\nTranslate another word? (y/n)   ");
                 proceed = Proceed(Console.ReadLine());
             }
         }
@@ -86,22 +90,21 @@ namespace Lab_6
         private static bool IsWord(string input)
         {
             char[] temp = input.ToCharArray();
-            int i = 0;
-                       
-            for (i = 0; i < input.Length; i++)
+            bool isWord= false;           
+            for (int i = 0; i < input.Length; i++)
             {
-                char letter = temp[i];
-                bool isWord = char.IsLetter(letter);
+                isWord = char.IsLetter(temp[i]);
 
-                Console.Write(letter.ToString());
-                Console.Write(isWord.ToString());
+                Console.WriteLine(temp[i].ToString());
+                Console.WriteLine(isWord.ToString());
                 if (isWord == false)
                 {
-                    Console.Write("break");
+                    Console.WriteLine("break");
                     break;
                 }
-            }
-            return false;
+         }
+             return isWord;
+
         }
 
     }
