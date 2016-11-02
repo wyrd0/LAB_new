@@ -10,6 +10,8 @@ namespace Lab_6
     {
         static void Main(string[] args)
         {
+            //by Mary O on Oct 28, 2016
+
             Console.WriteLine("Pig Latin Translator");
             Console.WriteLine("(igpay atinlay anslatortray)\n");
 
@@ -43,12 +45,12 @@ namespace Lab_6
                     string beginning = word.Substring(0, IndexOfFirstVowel);
                     Console.WriteLine(end + beginning + "ay");
                 }
-                //remaining words containing 'y'
+                //remaining words containing 'y' (treat y as vowel)
                 else if (word.Contains("y"))
                 {
-                    string endY = word.Substring(word.IndexOf("y"));
-                    string beginY = word.Substring(0, word.IndexOf("y"));
-                    Console.WriteLine(endY + beginY + "ay");
+                    string end = word.Substring(word.IndexOf("y"));
+                    string begin = word.Substring(0, word.IndexOf("y"));
+                    Console.WriteLine(end + begin + "ay");
                 }
                 
                 Console.Write("\nTranslate another word? (y/n)   ");
@@ -95,7 +97,7 @@ namespace Lab_6
                 {
                     break;
                 }
-         }
+            }
              return isWord;
 
         }
