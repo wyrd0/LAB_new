@@ -32,6 +32,7 @@ namespace Lab_8
                     Console.Write("Enter at bat results for Hitter " + (n) + " :  ");
                     battingResults[i] = int.Parse(Console.ReadLine());
                 }
+
             } while (n < numHitters);
 
             // count hits and sum bases in battingResults
@@ -58,10 +59,10 @@ namespace Lab_8
             Console.WriteLine("BattingAve \tSluggingAve");
             for (int i = 0; i < numHitters; i++)
             {
-                allStats[0, 0] = battingAve;
-                allStats[0, 1] = sluggingAve;
+                allStats[i, allStats.Length -  = battingAve;
+                allStats[i, 1] = sluggingAve;
 
-                Console.Write(allStats[i, 0] + " \t" + allStats[i, 1]);
+                Console.WriteLine(allStats[i, i] + " \t" + allStats[i, i]);
             }
 
             //OUTPUT
