@@ -12,11 +12,15 @@ namespace Lab_5
         {
 
             Console.Write("\nWelcome to the Grand Circus Casino!  Roll the dice? (y/n):   ");
-            string proceed = Program.Proceed(Console.ReadLine());
+            string proceed = Program.Proceed(GetInput());
             while (proceed == "yes")
             {
+                
                 Console.Write("\nHow many sides should each die have?   ");
-                int sides = Convert.ToInt32(Console.ReadLine());
+                int sides =  SidesIsNumber(Console.ReadLine());
+                
+                //int sides = Convert.ToInt32(Console.ReadLine());
+                //bool sidesOK = int.TryParse(Console.ReadLine(), out sides);
                 Console.WriteLine("Rolling 2 " + sides + "-sided dice...");
 
                 Random r = new Random();
@@ -30,6 +34,11 @@ namespace Lab_5
             }
 
 
+        }
+        private static string GetInput()
+        {
+            string input = Console.ReadLine();
+            return input;
         }
         //private static string Proceed(string input)
         //{
@@ -57,40 +66,36 @@ namespace Lab_5
             switch (proceed)
             {
                 case "y":
-                    proceed = "yes";
-                    break;
                 case "eys":
-                    proceed = "yes";
-                    break;
                 case "yes":
-                    proceed = "yes";
-                    break;
                 case "ok":
-                    proceed = "yes";
-                    break;
                 case "sure":
                     proceed = "yes";
                     break;
                 case "no":
-                    proceed = "no";
-                    break;
                 case "n":
                     proceed = "no";
+                    Console.WriteLine("\nGoodbye! Thanks for playing!\n");
                     break;
                 default:
-                    Console.Write("Your response was not understood.  Please respond with 'y' or 'n'.  \nWould you like to roll the dice?   ");
-                    input = Console.ReadLine().ToLower().Trim();
+                    Console.Write("Your response was not understood.  Please respond with 'y' or 'n'.");
+                    proceed = Proceed(GetInput());
                     break;
             }
-            if (proceed == "no")
-            {
-                Console.WriteLine("\nGoodbye! Thanks for playing!\n");
-            }
-            //else if (proceed == "yes")
-            //{
-            //    goto  case "y":;
-            //}
             return proceed;
+        }
+        private static int SidesIsNumber(string input)
+        {
+            int sides = 1;
+
+            bool sidesOK = sidesOK = int.TryParse(input, out sides); 
+            while (sidesOK == false || sides < 1)
+            {
+              Console.Write("A die cannot have  " + input + "  sides.  Please try again.   ");
+                sides = SidesIsNumber(GetInput());
+                break;
+            }
+            return sides;
         }
     }
 }
