@@ -9,6 +9,7 @@ namespace Lab_9_Circle
     class CircleApp
     {
         private double Radius;
+        
 
         public CircleApp(double radius)
         {

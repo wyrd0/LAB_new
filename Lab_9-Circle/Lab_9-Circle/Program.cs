@@ -10,18 +10,34 @@ namespace Lab_9_Circle
     {
         static void Main(string[] args)
         {
-            double radius;
-
             //Prompt for radius
-            Console.Write("Please enter a radius:   ");
-            IsDouble(Console.ReadLine(), out radius);
+            Console.WriteLine("Welcome to the Circle App.\n");
+            Console.Write("To create a circle, please enter a radius:   ");
+            double radius = IsDouble(GetInput());
             
-
+            //call CircleApp to calculate Circumference Area
+            CircleApp circle = new CircleApp(radius);
+            string circumference = circle.GetFormattedCircumference(radius);
+            Console.WriteLine("The circumference of your circle is {0}.", circumference);
+            string area = circle.GetFormattedArea(radius);
+            Console.WriteLine("The circumference of your circle is {0}.", area);
         }
-        static bool IsDouble(string input, out double radius)
+        private static string GetInput()
         {
-            bool valid = double.TryParse(Console.ReadLine(), out radius);
-            return valid;
+            string input = Console.ReadLine();
+            return input;
+        }
+        static double IsDouble(string input)
+        {
+            double radius;
+            bool validDouble = true;
+            validDouble = double.TryParse(input, out radius);
+            while (validDouble == false || radius < 1)
+            {
+                Console.Write("Invalid input.  Please try again.   ");
+                radius = IsDouble(GetInput());
+            }
+            return radius;
         }
     }
 }
