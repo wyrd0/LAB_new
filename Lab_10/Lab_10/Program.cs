@@ -19,7 +19,7 @@ namespace Lab_10
             category = Console.ReadLine();
             MovieList.Add(new Movie(title, category));
 
-                Console.WriteLine("Welcome to MovieList!\n");
+            Console.WriteLine("Welcome to MovieList!\n");
             Console.WriteLine("There are 10 movies in this list. \nWhat category are you interested in?    ");
             category = Console.ReadLine();
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lab_10
 {
-    class Movie
+   public class Movie
     {
         private string Title;
         private string Category;
@@ -37,17 +37,19 @@ namespace Lab_10
                 Category = value;
             }
         }
-            #endregion
+        #endregion
 
-            //constructors
-           public Movie(string title, string category)
+        //constructors
+        public Movie(string title, string category)
         {
             title = Title;
             category = Category;
         }
-            public string SearchByCategory(string category)
+
+
+        public static List<string> SearchByCategory(string category, List<Movie> MovieList)
         {
-            return Title;
+            return null;
         }
         
     }
