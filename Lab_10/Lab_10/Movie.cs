@@ -36,21 +36,18 @@ namespace Lab_10
             {
                 Category = value;
             }
+        }
             #endregion
 
             //constructors
            public Movie(string title, string category)
         {
-           Title1 = title;
-           Category1 = Category;
+            title = Title;
+            category = Category;
         }
-            public Movie(string category)
+            public string SearchByCategory(string category)
         {
-            Category1 = category;
-        }
-        public MatchCategory(string category)
-        {
-
+            return Title;
         }
         
     }
