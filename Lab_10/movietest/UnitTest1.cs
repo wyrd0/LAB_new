@@ -13,15 +13,13 @@ namespace movietest
         {
             List<Movie> MovieList = new List<Movie>();
             
-
             MovieList.Add(new Movie("Brazil", "scifi"));
             MovieList.Add(new Movie("Blade Runner", "scifi"));
             MovieList.Add(new Movie("Leon, the Professional", "drama"));
 
-            List<string> result = Movie.SearchByCategory("drama", MovieList);
-            Assert.AreEqual(1, result.Count);
+            List<string> result = Movie.SearchByCategory("scifi", MovieList);
+            Assert.AreEqual(2, result.Count);
         }
     }
-
 
 }

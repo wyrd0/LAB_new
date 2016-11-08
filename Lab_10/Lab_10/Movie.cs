@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Lab_10
 {
-   public class Movie
+     public class Movie
     {
+
         private string Title;
         private string Category;
 
@@ -37,20 +38,37 @@ namespace Lab_10
                 Category = value;
             }
         }
-        #endregion
+
+       #endregion
 
         //constructors
-        public Movie(string title, string category)
+        public Movie(string titl, string cat)
         {
-            title = Title;
-            category = Category;
+            titl = Title;
+            cat = Category;
         }
 
 
-        public static List<string> SearchByCategory(string category, List<Movie> MovieList)
-        {
-            return null;
+        //public static List<string> SearchByCategory(string cat, List<Movie> MovieList)
+        //{
+
+        //    List<string> category = new List<string>();
+        //    for (int i = 1; i <= MovieList.Count; i++)
+        //    {
+        //        foreach (Movie item in MovieList)
+        //        {
+        //            if (c)
+        //            {
+
+        //            }
+        //        }
+        //        {
+
+        //        }
+        //    }
+        //    return null;
+
+            
         }
         
     }
-}
