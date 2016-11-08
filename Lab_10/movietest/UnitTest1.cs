@@ -12,12 +12,14 @@ namespace movietest
         public void TestSearchByCategory()
         {
             List<Movie> MovieList = new List<Movie>();
-            
+            Movie obj = new Movie("scifi");
+
             MovieList.Add(new Movie("Brazil", "scifi"));
             MovieList.Add(new Movie("Blade Runner", "scifi"));
             MovieList.Add(new Movie("Leon, the Professional", "drama"));
 
-            List<string> result = Movie.SearchByCategory("scifi", MovieList);
+            List<string> result = new List<string>();
+            result = obj.SearchByCategory("scifi", MovieList);
             Assert.AreEqual(2, result.Count);
         }
     }

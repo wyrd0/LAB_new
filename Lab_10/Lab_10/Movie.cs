@@ -7,68 +7,71 @@ using System.Threading.Tasks;
 namespace Lab_10
 {
      public class Movie
-    {
 
-        private string Title;
-        private string Category;
+    {           //use hashtable
+
+        private string title;
+        private string category;
 
         #region get/set
-        public string Title1
+        public string Title
         {
             get
             {
-                return Title;
+                return title;
             }
 
             set
             {
-                Title = value;
+                title = value;
             }
         }
 
-        public string Category1
+        public string Category
         {
             get
             {
-                return Category;
+                return category;
             }
 
             set
             {
-                Category = value;
+                category = value;
             }
         }
 
-       #endregion
+      
+
+        #endregion
 
         //constructors
         public Movie(string titl, string cat)
         {
-            titl = Title;
-            cat = Category;
+            Title = titl;               //! Start with global var (=Property)!
+            Category = cat;
+        }
+        public Movie(string cat)
+        {
+            Category = cat;
         }
 
 
-        //public static List<string> SearchByCategory(string cat, List<Movie> MovieList)
-        //{
-
-        //    List<string> category = new List<string>();
-        //    for (int i = 1; i <= MovieList.Count; i++)
-        //    {
-        //        foreach (Movie item in MovieList)
-        //        {
-        //            if (c)
-        //            {
-
-        //            }
-        //        }
-        //        {
-
-        //        }
-        //    }
-        //    return null;
-
-            
+        public List<string> SearchByCategory(string cat, List<Movie> MovieList)
+        {
+            List<string> SearchList = new List<string>();
+            for (int i = 1; i <= MovieList.Count; i++)
+            {
+                if (MovieList.ElementAt(i).Category == cat)
+                {
+                    SearchList.Add(MovieList[i].Title);
+                }  
+                       
+           }
+            return SearchList;
         }
+
+
+
+    }
         
     }
